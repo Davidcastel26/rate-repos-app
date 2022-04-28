@@ -3,26 +3,27 @@ import React from "react";
 import { View, Text } from "react-native";
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
-import { Switch, Redirect, Route } from "react-router-native";
+// import { Redirect,  } from "react-router-native";
+// import { Redirect, Switch } from "react-router";
+import { NativeRouter, Route, Link, Redirect } from "react-router-native";
 
 const Main = () => {
   return (
     <View style={{ flex: 1 }}>
       <AppBar />
-      <RepositoryList />
+      <View>
+        <Link exact path="/">
+          <RepositoryList />
+        </Link>
+
+        <Link path="/signing">
+          <Text>Working</Text>
+        </Link>
+        {/* <Redirect to="/" /> */}
+      </View>
+      {/* <RepositoryList /> */}
     </View>
   );
 };
 
 export default Main;
-
-
-/*<Switch>
-        <Route path='/' exact>
-          <RepositoryList />
-        </Route>
-        <Route path='/signing' exact>
-          <Text>Working on it</Text>
-        </Route>
-        <Redirect to='/' />
-      </Switch> */
